@@ -1,0 +1,24 @@
+# emacs + vi backup files
+*~
+.*.sw*
+
+# various IDE junk
+*.ipr
+*.iml
+*.iws
+.project
+.classpath
+.settings
+
+target
+classes
+*.jar
+*.war
+
+pom.xml
+lib
+native
+.lein-failures
+checkouts
+.lein-deps-sum
+

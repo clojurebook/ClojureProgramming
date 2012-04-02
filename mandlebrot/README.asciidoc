@@ -1,0 +1,17 @@
+You can obtain a nearly order-of-magnitude improvement in the running time of `clojureprogramming.mandlebrot/mandlebrot` by replacing its helper `escape` function with this implementation:
+
+----
+(defn- escape
+  [^double a0 ^double b0 depth]
+  (loop [a a0
+         b b0
+         iteration 0]
+    (cond
+      (< 4 (+ (* a a) (* b b))) iteration
+      (>= iteration depth) -1
+      :else (recur (+ a0 (- (* a a) (* b b)))
+                   (+ b0 (* 2 (* a b)))
+                   (inc iteration)))))
+----
+
+Note the `^double` type declarations for the `a0` and `b0` arguments in our revised implementation of `escape`, which is otherwise unchanged.

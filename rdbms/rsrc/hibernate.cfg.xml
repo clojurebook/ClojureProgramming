@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+    <property name="hibernate.connection.url">jdbc:sqlite::memory:</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+    <!-- Drop and re-create the database schema on startup -->
+    <property name="hbm2ddl.auto">create</property>
+    <mapping class="com.clojurebook.hibernate.Author"/>
+  </session-factory>
+</hibernate-configuration>
