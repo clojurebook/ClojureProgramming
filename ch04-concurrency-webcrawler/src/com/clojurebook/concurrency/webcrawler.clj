@@ -109,3 +109,15 @@
   (Thread/sleep 60000)
   (pause)
   [(count @crawled-urls) (count url-queue)])
+
+(defn -main
+  [& [starting-url agent-count]]
+  (when-not starting-url
+    (println "Must provide a starting URL.
+e.g. `lein run http://www.bbc.co.uk [agent-count]`"))
+  (let [agent-count (or agent-count "10")
+        [crawled-count queued-count] (test-crawler (Integer/parseInt agent-count) starting-url)]
+    (println (format "Crawled %s URLs in 60 seconds, %s additional URLs left in the queue"
+               crawled-count queued-count))
+    (shutdown-agents)))
+
