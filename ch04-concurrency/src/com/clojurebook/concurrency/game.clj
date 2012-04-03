@@ -67,32 +67,40 @@
   (while (and (alive? @character)
               (alive? @other)
               (action character other))
-    (Thread/sleep (rand-int 50))))
+    (Thread/sleep (rand-int 100))))
 
-(comment
-  ;epic battle!
+(defn -battle-demo []
   (def smaug (character "Smaug" :health 500 :strength 400))
   (def bilbo (character "Bilbo" :health 100 :strength 100))
   (def gandalf (character "Gandalf" :health 75 :mana 1000))
-  
+
   (wait-futures 1
                 (play bilbo attack smaug)
                 (play smaug attack bilbo)
                 (play gandalf heal bilbo))
 
-  (pprint (map (comp #(select-keys % [:name :health :mana]) deref) [smaug bilbo gandalf])))
+  (clojure.pprint/pprint
+    (map
+      (comp #(select-keys % [:name :health :mana]) deref)
+      [smaug bilbo gandalf]))
+
+  (shutdown-agents))
 
 
-(comment
+(defn -loot-demo []
   (def smaug (character "Smaug" :health 500 :strength 400 :items (set (range 50))))
   (def bilbo (character "Bilbo" :health 100 :strength 100))
   (def gandalf (character "Gandalf" :health 75 :mana 1000))
   (wait-futures 1
                 (while (loot smaug bilbo))
                 (while (loot smaug gandalf)))
-  
-  (println (map (comp count :items deref) [bilbo gandalf]))
-  (println (filter (:items @bilbo) (:items @gandalf))))
+
+  (println "Bilbo's and Gandalf's item counts (should always == 50):"
+    (map (comp count :items deref) [bilbo gandalf]))
+  (println "Overlap in Bilbo's and Gandalf's items (should always be empty):"
+    (filter (:items @bilbo) (:items @gandalf)))
+
+  (shutdown-agents))
 
 
 

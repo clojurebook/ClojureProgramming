@@ -79,20 +79,25 @@
               (action character other))
     (Thread/sleep (rand-int 100))))
 
-(comment
+(defn -main []
   (def smaug (character "Smaug" :health 500 :strength 400))
   (def bilbo (character "Bilbo" :health 100 :strength 100))
   (def gandalf (character "Gandalf" :health 75 :mana 1000))
 
   (log-reference bilbo console character-log)
   (log-reference smaug console character-log)
-  
+
   (wait-futures 1
                 (play bilbo attack smaug)
                 (play smaug attack bilbo)
                 (play gandalf heal bilbo))
 
-  (clojure.pprint/pprint (map (comp #(select-keys % [:name :health :mana]) deref) [smaug bilbo gandalf])))
+  (clojure.pprint/pprint
+    (map
+      (comp #(select-keys % [:name :health :mana]) deref)
+      [smaug bilbo gandalf]))
+
+  (shutdown-agents))
 
 
 
