@@ -12,9 +12,10 @@ Programming' by Emerick, Carper, and Grand."
 
 (robert.hooke/add-hook #'leiningen.compile/compile
   (fn [compile project & args]
-    (apply compile project args)
-    (leiningen.javac/javac (assoc project
-                             ;; Leiningen 1 uses :java-source-path
-                             :java-source-path "srcj"
-                             ;; Lein 2 uses :java-source-paths
-                             :java-source-paths ["srcj"]))))
+    (let [compile-result (apply compile project args)]
+      (leiningen.javac/javac (assoc project
+                               ;; Leiningen 1 uses :java-source-path
+                               :java-source-path "srcj"
+                               ;; Lein 2 uses :java-source-paths
+                               :java-source-paths ["srcj"]))
+      compile-result)))
