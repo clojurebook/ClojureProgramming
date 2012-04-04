@@ -8,3 +8,11 @@ Of course, please feel free to watch this repo, [follow @ClojureBook on
 Twitter](http://twitter.com/ClojureBook), or subscribe to the book's
 mailing list on [clojurebook.com](http://clojurebook.com) to be notified
 when significant changes and improvements happen here.
+
+## License
+
+Copyright © 2012 Chas Emerick, Brian Carper, and Christophe Grand.
+
+Distributed under the Eclipse Public License (see included
+`epl-v10.html`), the same as Clojure.
+
