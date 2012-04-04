@@ -1,9 +1,24 @@
 ## _Clojure Programming_, Chapter 17
 
-### Developing Clojure web applications with Maven and Jetty
+### Packaging and running Clojure web applications with Maven and Jetty
 
 This project contains a simple Clojure web application that can be
 started and reloaded using Maven and Jetty via the maven-jetty-plugin. 
+
+#### Packaging
+
+Maven makes it easy to package up a Clojure webapp up as a standard war
+file, which can then be deployed directly to any standard Java web app
+container, or to any of the cloud platforms that support Java/war
+deployment.
+
+In a terminal:
+
+```
+$ mvn package
+```
+
+This will produce the war file in the `target` subdirectory.
 
 #### Running
 
