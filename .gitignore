@@ -15,7 +15,7 @@ classes
 *.jar
 *.war
 
-pom.xml
+
 lib
 native
 .lein-failures
