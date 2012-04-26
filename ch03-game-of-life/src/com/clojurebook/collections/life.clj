@@ -142,7 +142,7 @@
    board of specified size."
   [w h]
   (stepper #(filter (fn [[i j]] (and (< -1 i w) (< -1 j h))) 
-                    (neighbours %)) #{2 3} #{3}))
+                    (neighbours %)) #{3} #{2 3}))
 
 (defn draw
   [w h step cells]
