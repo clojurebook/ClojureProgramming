@@ -804,7 +804,7 @@ Measurable
   (empty [this] empty-array-set)
   (equiv [this that] (.equals this that))
   clojure.lang.Seqable
-  (seq [this] (take size items))
+  (seq [this] (seq (take size items)))
   Object
   (hashCode [this]
     (when (== -1 hashcode)
@@ -925,7 +925,7 @@ Measurable
   (empty [this] empty-array-set)
   (equiv [this that] (.equals this that))                    
   clojure.lang.Seqable
-  (seq [this] (take size items))
+  (seq [this] (seq (take size items)))
   Object
   (hashCode [this]
     (when (== -1 hashcode)
