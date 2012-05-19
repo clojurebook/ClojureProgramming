@@ -1691,11 +1691,12 @@ b
       places (distinct (apply concat labyrinth))
       theseus (rand-nth places)
       minotaur (rand-nth places)
+      full-path #(conj (z/path %) (z/node %)) ; erratum 
       path (->> theseus
              (ariadne-zip labyrinth) 
              (iterate z/next)
              (filter #(= minotaur (first (z/node %))))
-             first z/path rest)]
+             first full-path rest)] ; erratum: replaced z/path by full-path
   (draw w h walls path))
 
 
