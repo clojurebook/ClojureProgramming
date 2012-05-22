@@ -1695,7 +1695,7 @@ b
       path (->> theseus
              (ariadne-zip labyrinth) 
              (iterate z/next)
-             (filter #(= minotaur (first (z/node %))))
+             (filter #(= minotaur (second (z/node %)))) ; erratum: replaced first by second
              first full-path rest)] ; erratum: replaced z/path by full-path
   (draw w h walls path))
 
