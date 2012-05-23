@@ -575,7 +575,7 @@ sm
 ;-----
 (defn compare-magnitude
   [a b]
-  (- (magnitude a) (magnitude b)))
+  (< (magnitude a) (magnitude b)))
 
 ((comparator compare-magnitude) 10 10000)
 ;= -1
