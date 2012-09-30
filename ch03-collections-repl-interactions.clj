@@ -1456,7 +1456,7 @@ b
            unvisited (disj (set (keys paths)) start-loc)]
       (if-let [loc (when-let [s (seq unvisited)] (rand-nth s))]
         (let [walk (iterate (comp rand-nth paths) loc)
-              steps (zipmap (take-while unvisited walk) (next walk))]<8>
+              steps (zipmap (take-while unvisited walk) (next walk))]
           (recur (reduce disj walls (map set steps))
             (reduce disj unvisited (keys steps))))
         walls))))
@@ -1518,7 +1518,7 @@ b
         deltas [[2 0] [1 1] [-1 1]]]
     (set (for [v vertices d deltas f [+ -]
                :let [w (vertices (map f v d))]
-               :when w] #{v w}))
+               :when w] #{v w}))))
 
 (defn- hex-outer-walls
   [w h]
@@ -1527,7 +1527,7 @@ b
         deltas [[2 0] [1 1] [-1 1]]]
     (set (for [v vertices d deltas f [+ -]
                :let [w (map f v d)]
-               :when (not (vertices w))] #{v (vec w)}))
+               :when (not (vertices w))] #{v (vec w)}))))
 
 (defn hex-draw
   [w h maze]
