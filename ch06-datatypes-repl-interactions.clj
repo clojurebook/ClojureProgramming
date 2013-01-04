@@ -559,8 +559,8 @@ Point
   {:cols (fn [pt]
            (let [[h w] (dims pt)]
              (map
-               (fn [x] (map #(lookup pt x y) (range 0 w)))
-               (range 0 h))))
+               (fn [x] (map #(lookup pt % x) (range 0 h)))
+               (range 0 w))))
    :rows (fn [pt]
            (apply map vector (cols pt)))})
 
