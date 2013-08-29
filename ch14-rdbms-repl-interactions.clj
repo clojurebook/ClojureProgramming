@@ -1,4 +1,3 @@
-
 ;-----
 (require '[clojure.java.jdbc :as jdbc])
 ;= nil
@@ -12,13 +11,13 @@
 {:classname "com.mysql.jdbc.Driver"
  :subprotocol "mysql"
  :subname "//localhost:3306/databasename"
- :username "login"
+ :user "login"
  :password "password"}
 
 
 ;-----
 {:datasource datasource-instance
- :username "login"
+ :user "login"
  :password "password"}
 
 
