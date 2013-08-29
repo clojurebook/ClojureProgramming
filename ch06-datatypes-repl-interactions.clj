@@ -551,7 +551,7 @@ Point
           [[(:x pt)] [(:y pt)]])
    :cols (fn [pt]
            [[(:x pt) (:y pt)]])
-   :dims (fn [pt] [2 1]))
+   :dims (fn [pt] [2 1])})
 
 
 ;-----
