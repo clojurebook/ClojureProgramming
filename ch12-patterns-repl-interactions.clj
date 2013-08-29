@@ -80,7 +80,7 @@ class MyApp {
 (defprotocol Bark
   (bark [this]))
 
-(defrecord Chihuahua [weight price]
+(defrecord Chihuahua []
   Bark
   (bark [this] "Yip!"))
 
