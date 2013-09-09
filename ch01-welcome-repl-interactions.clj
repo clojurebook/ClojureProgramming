@@ -1,4 +1,3 @@
-
 ;-----
 (defn average
   [numbers]
@@ -542,10 +541,12 @@ p
 
 ;-----
 (letfn [(odd? [n]
-          (even? (dec n)))
+          (if (zero? n)
+            false
+            (even? (dec n))))
         (even? [n]
           (or (zero? n)
-            (odd? (dec n))))]
+              (odd? (dec n))))]
   (odd? 11))
 ;= true
 
