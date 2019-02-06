@@ -5,8 +5,8 @@
     [(+ x dx) (+ y dy)]))
 
 (defn step [cells]
-  (apply hash-set (map first (filter #(or (= 3 (second %)) (and (= 2 (second %)) (cells (first %))))
-                                     (frequencies (apply concat (map neighbours cells)))))))
+  (set (map first (filter #(or (= 3 (second %)) (and (= 2 (second %)) (cells (first %))))
+                          (frequencies (apply concat (map neighbours cells)))))))
 
 (defn draw
   [w h step cells]
